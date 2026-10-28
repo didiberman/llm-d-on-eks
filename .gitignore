@@ -42,3 +42,10 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 # planout
+# Local state from the bootstrap layer is committed deliberately (it bootstraps
+# the remote backend); ignore everything else Terraform generates.
+.terraform/
+*.tfplan
+terraform.tfvars
+!terraform/00-bootstrap/terraform.tfstate
+.DS_Store
